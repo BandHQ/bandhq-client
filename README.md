@@ -1,1 +1,1 @@
-# BandHQ Front-End
+# BandHQ Client

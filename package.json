@@ -1,5 +1,5 @@
 {
-  "name": "bandhq-front-end",
+  "name": "bandhq-bandhq-client",
   "version": "1.0.0",
   "private": true,
   "description": "Contains the front end of the BandHQ App",
@@ -123,12 +123,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BandHQ/Front-End.git"
+    "url": "git+https://github.com/BandHQ/bandhq-client.git"
   },
   "author": "Tom Brierlewy",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/BandHQ/Front-End/issues"
+    "url": "https://github.com/BandHQ/bandhq-client/issues"
   },
-  "homepage": "https://github.com/BandHQ/Front-End#readme"
+  "homepage": "https://github.com/BandHQ/bandhq-client#readme"
 }
