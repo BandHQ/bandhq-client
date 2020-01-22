@@ -1,1 +1,1 @@
-# Front-End
+# BandHQ Front-End

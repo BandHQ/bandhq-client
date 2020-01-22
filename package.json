@@ -1,0 +1,134 @@
+{
+  "name": "bandhq-front-end",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Contains the front end of the BandHQ App",
+  "dependencies": {
+    "@apollo/react-hooks": "3.0.0",
+    "@date-io/dayjs": "^1.3.13",
+    "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.4.3",
+    "@material-ui/pickers": "^3.2.8",
+    "@material-ui/styles": "^4.8.2",
+    "@reach/router": "^1.2.1",
+    "@sentry/browser": "^5.11.1",
+    "@storybook/addon-actions": "^5.3.3",
+    "@storybook/addon-links": "^5.3.3",
+    "@storybook/addons": "^5.3.3",
+    "@storybook/react": "^5.3.3",
+    "apollo": "^2.21.3",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-cache-persist": "^0.1.1",
+    "apollo-client": "^2.6.8",
+    "apollo-link": "^1.2.13",
+    "apollo-link-context": "^1.0.19",
+    "apollo-link-error": "^1.1.12",
+    "apollo-link-http": "^1.5.16",
+    "apollo-link-retry": "^2.2.15",
+    "apollo-upload-client": "^12.1.0",
+    "clsx": "^1.0.4",
+    "dayjs": "^1.8.19",
+    "formik": "^1.5.8",
+    "formik-error-focus": "^1.0.0",
+    "graphql-tag": "^2.10.1",
+    "notistack": "^0.9.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-scripts": "^3.3.0",
+    "react-spring": "^8.0.27",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "customize-cra": "^0.6.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-import-resolver-babel-module": "^5.1.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "react-app-rewired": "^2.1.3"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "react-app",
+      "airbnb",
+      "prettier"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "max-len": [
+        "warn",
+        {
+          "code": 120,
+          "ignoreStrings": true
+        }
+      ],
+      "import/no-unresolved": [
+        "error",
+        {
+          "caseSensitive": false
+        }
+      ],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "jsx-a11y/label-has-for": [
+        2,
+        {
+          "components": [
+            "Label"
+          ],
+          "required": {
+            "every": [
+              "id"
+            ]
+          }
+        }
+      ],
+      "jsx-a11y/anchor-has-content": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "import/prefer-default-export": "off"
+    }
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BandHQ/Front-End.git"
+  },
+  "author": "Tom Brierlewy",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/BandHQ/Front-End/issues"
+  },
+  "homepage": "https://github.com/BandHQ/Front-End#readme"
+}
