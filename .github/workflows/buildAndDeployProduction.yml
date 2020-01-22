@@ -19,10 +19,11 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm ci
-          npm run build --if-present
+          npm run build
           npm test
         env:
           CI: true
+          publicPath: 'bandhq.app'
       - name: Deploy to S3 - Production
         uses: jakejarvis/s3-sync-action@master
         with:
