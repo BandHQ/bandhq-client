@@ -23,7 +23,7 @@ jobs:
           npm test
         env:
           CI: true
-          publicPath: 'staging.bandhq.app'
+          PUBLIC_URL: 'staging.bandhq.app'
       - name: Deploy to S3 - Staging
         uses: jakejarvis/s3-sync-action@master
         with:
