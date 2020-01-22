@@ -10,16 +10,12 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 12.x
       - name: npm install, build, and test
         run: |
           npm ci
@@ -41,5 +37,5 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_PRODUCTION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-west-1' # optional: defaults to us-east-1
-          SOURCE_DIR: 'public' # optional: defaults to entire repository
+          AWS_REGION: 'eu-central-1'
+          SOURCE_DIR: 'build'
