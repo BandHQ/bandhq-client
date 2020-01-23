@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { globalHistory, Router } from '@reach/router';
 
-function App() {
+import Home from './views/Home';
+
+const App = () => {
+  // Hook into router change event
+  useEffect(() => {
+    return globalHistory.listen(({ action }) => {
+      if (action === 'PUSH') {
+        if (window.gtag) {
+          window.gtag('config', 'UA-156805282-1');
+        }
+
+        window.scrollTo(0, 0);
+      }
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Home default path="/" />
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
