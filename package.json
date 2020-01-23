@@ -1,6 +1,6 @@
 {
-  "name": "bandhq-bandhq-client",
-  "version": "0.1.0",
+  "name": "bandhq-client",
+  "version": "0.1.1",
   "private": true,
   "description": "Contains the front end of the BandHQ App",
   "dependencies": {
