@@ -9,9 +9,10 @@ const colors = {
   grey200: '#E1E1E1',
   grey100: '#F4F4F4',
   green500: '#71CA91',
-  green600: '#389E5D',
+  green600: '#46B56E',
   purple500: '#7B30D4',
   white5: 'rgba(255,255,255,0.05)',
+  white10: 'rgba(255,255,255,0.1)',
   white50: 'rgba(255,255,255,0.5)',
   white80: 'rgba(255,255,255,0.8)',
 };

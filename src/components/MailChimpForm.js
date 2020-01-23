@@ -18,6 +18,10 @@ const Input = styled.input`
     color: ${props => props.theme.colors.white50};
   }
 
+  &:focus {
+    border-color: ${props => props.theme.colors.white80};
+  }
+
   ${props => props.theme.breakpoints.small`
     max-width: 340px;
     margin-right: ${props.theme.spacing.base};
