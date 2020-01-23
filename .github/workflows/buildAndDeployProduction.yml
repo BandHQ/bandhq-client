@@ -20,7 +20,6 @@ jobs:
         run: |
           npm ci
           npm run build
-          npm test --passWithNoTests
         env:
           CI: true
           PUBLIC_URL: '/bandhq.app/'
