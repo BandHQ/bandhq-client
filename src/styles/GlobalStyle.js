@@ -126,7 +126,7 @@ const GlobalStyle = createGlobalStyle`${({ theme }) => `
   textarea,
   button,
   [class^="c-btn"] {
-    transition-duration: 0.5s;
+    transition-duration: ${theme.base.transitionSpeed};
     transition-property: background-color, color, opacity, border, border-left, border-right, border-color, transform;
     transition-timing-function: ${theme.easing.move};
     transform-origin: center center;
