@@ -22,7 +22,7 @@ jobs:
           npm run build
         env:
           CI: true
-          PUBLIC_URL: '/bandhq.app/'
+          PUBLIC_URL: '/'
       - name: Deploy to S3 - Production
         uses: jakejarvis/s3-sync-action@master
         with:

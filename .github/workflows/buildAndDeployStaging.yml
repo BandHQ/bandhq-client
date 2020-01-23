@@ -22,7 +22,7 @@ jobs:
           npm run build
         env:
           CI: true
-          PUBLIC_URL: '/staging.bandhq.app/'
+          PUBLIC_URL: '/'
       - name: Deploy to S3 - Staging
         uses: jakejarvis/s3-sync-action@master
         with:
