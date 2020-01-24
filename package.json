@@ -109,7 +109,8 @@
     }
   },
   "scripts": {
-    "start": "PUBLIC_URL=/ react-app-rewired build && node server.js",
+    "prestart": "PUBLIC_URL=/ react-app-rewired build",
+    "start": "node server.js",
     "dev": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
@@ -136,5 +137,8 @@
   "bugs": {
     "url": "https://github.com/BandHQ/bandhq-client/issues"
   },
-  "homepage": "https://github.com/BandHQ/bandhq-client#readme"
+  "homepage": "https://github.com/BandHQ/bandhq-client#readme",
+  "engines": {
+    "node": "12.x"
+  }
 }
