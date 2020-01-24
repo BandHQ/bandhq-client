@@ -109,7 +109,7 @@
     }
   },
   "scripts": {
-    "prestart": "PUBLIC_URL=/ react-app-rewired build",
+    // "prestart": "PUBLIC_URL=/ react-app-rewired build",
     "start": "node server.js",
     "dev": "react-app-rewired start",
     "build": "react-app-rewired build",
