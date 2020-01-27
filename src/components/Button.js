@@ -7,7 +7,7 @@ import buttonBase from '../theme/buttonBase';
 import getButtonElement from '../utils/getButtonElement';
 
 const Wrapper = styled.a`
-  ${({ theme, small }) => `
+  ${({ theme, small, transparent }) => `
 
   ${buttonBase}
 
@@ -15,6 +15,15 @@ const Wrapper = styled.a`
     `
     padding: ${theme.spacing.xSmall} ${theme.spacing.base};
     font-size: ${theme.fontSizes.xSmall};
+  `}
+
+  ${transparent &&
+    `
+    background-color: transparent;
+
+    &:hover, &:active {
+      background-color: ${theme.colors.white5};
+    }
   `}
 `}
 `;

@@ -125,9 +125,10 @@ const GlobalStyle = createGlobalStyle`${({ theme }) => `
   select,
   textarea,
   button,
+  svg,
   [class^="c-btn"] {
     transition-duration: ${theme.base.transitionSpeed};
-    transition-property: background-color, color, opacity, border, border-left, border-right, border-color, transform;
+    transition-property: background-color, color, opacity, border, border-left, border-right, border-color, transform, fill;
     transition-timing-function: ${theme.easing.move};
     transform-origin: center center;
   }

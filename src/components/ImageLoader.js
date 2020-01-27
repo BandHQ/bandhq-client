@@ -15,6 +15,18 @@ const Wrapper = styled.figure`
   img {
     display: none;
   }
+
+  ${props =>
+    props.screenshot &&
+    `
+    padding-bottom: 36%;
+  `};
+
+  ${props =>
+    props.marginTop &&
+    `
+    margin-top: ${props.theme.spacing.large};
+  `};
 `;
 
 const Background = styled.div`
@@ -40,9 +52,18 @@ const Background = styled.div`
     opacity: 1;
     transform: none;
   `};
+
+  ${props =>
+    props.noBorder &&
+    `
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+  `};
 `;
 
-const ImageLoader = ({ imageUrl, alt }) => {
+const ImageLoader = ({ imageUrl, alt, ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const handleImageLoad = () => {
@@ -61,8 +82,8 @@ const ImageLoader = ({ imageUrl, alt }) => {
   });
 
   return (
-    <Wrapper>
-      <Background isLoaded={isLoaded} imageUrl={imageUrl}>
+    <Wrapper {...props}>
+      <Background isLoaded={isLoaded} imageUrl={imageUrl} {...props}>
         <img src={imageUrl} alt={alt} />
       </Background>
     </Wrapper>

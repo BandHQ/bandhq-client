@@ -14,7 +14,7 @@ const Main = styled.main`
   );
 `;
 
-const Home = ({ title, description, children }) => {
+const Layout = ({ title, description, children }) => {
   return (
     <>
       <Helmet>
@@ -31,10 +31,10 @@ const Home = ({ title, description, children }) => {
   );
 };
 
-Home.propTypes = {
+Layout.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 
-export default Home;
+export default Layout;

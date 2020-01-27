@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
-import MailChimpForm from './MailChimpForm';
+import Button from './Button';
 
 import Container from '../styles/Container';
 
@@ -21,7 +20,21 @@ const Wrapper = styled.section`
   ${props => props.theme.breakpoints.small`
     padding: ${props.theme.spacing.xLarge} 0;
   `}
-`;
+
+
+  ${props =>
+    props.small &&
+    `
+      padding: ${props.theme.spacing.large} 0;
+      min-height: 0;
+    `}
+
+    ${props =>
+      props.small &&
+      props.theme.breakpoints.small`
+        padding: ${props.theme.spacing.xLarge} 0;
+    `}
+  `;
 
 const Inner = styled.div`
   max-width: 760px;
@@ -43,18 +56,23 @@ const SubTitle = styled.p`
   line-height: 1.3;
 `;
 
-const Hero = ({ title, subTitle }) => {
+const Action = styled.div`
+  margin-top: ${props => props.theme.spacing.large};
+`;
+
+const Hero = ({ title, subTitle, action, ...props }) => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Container>
         <Inner>
           <Title>{title}</Title>
           <SubTitle>{subTitle}</SubTitle>
 
-          <MailchimpSubscribe
-            url="https://app.us4.list-manage.com/subscribe/post?u=ea5d838d352af7686f80e5c7d&amp;id=cadd8e2e57"
-            render={MailChimpForm}
-          />
+          {action && (
+            <Action>
+              <Button {...action}>{action.label}</Button>
+            </Action>
+          )}
         </Inner>
       </Container>
     </Wrapper>
@@ -64,6 +82,13 @@ const Hero = ({ title, subTitle }) => {
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
+  action: PropTypes.shape({
+    label: PropTypes.string,
+  }),
+};
+
+Hero.defaultProps = {
+  action: null,
 };
 
 export default Hero;
