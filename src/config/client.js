@@ -26,7 +26,7 @@ const DEFAULTS = {
 const cache = new InMemoryCache();
 
 const httpLink = createUploadLink({
-  uri: process.env.API_URL,
+  uri: process.env.REACT_APP_API_URL,
 });
 
 const retryLink = new RetryLink();
@@ -80,9 +80,10 @@ const authLink = setContext((_, { headers }) => {
   }
 }).concat(resetAuth);
 
-export const client = new ApolloClient({
+const client = new ApolloClient({
   cache,
   link: ApolloLink.from([authLink, retryLink, httpLink]),
+  resolvers: {},
   defaultOptions: {
     watchQuery: {
       fetchPolicy: 'cache-and-network',

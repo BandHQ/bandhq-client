@@ -8,6 +8,11 @@ import MusiciansWanted from './views/MusiciansWanted';
 import FindBandMembers from './views/FindBandMembers';
 import Login from './views/Login';
 import SignUp from './views/SignUp';
+import Profile from './views/Profile';
+import Messages from './views/Messages';
+import Projects from './views/Projects';
+import Calendar from './views/Calendar';
+import Collaborate from './views/Collaborate';
 
 import { IS_AUTHENTICATED } from './graph/auth';
 
@@ -45,6 +50,11 @@ const App = () => {
   return (
     <>
       <Router>
+        <Profile path="/profile" />
+        <Messages path="/messages" />
+        <Projects path="/projects" />
+        <Calendar path="/calendar" />
+        <Collaborate path="/collaborate" />
         <FindABand path="/find-a-band" />
         <MusiciansWanted path="/musicians-wanted" />
         <FindBandMembers path="/find-band-members" />

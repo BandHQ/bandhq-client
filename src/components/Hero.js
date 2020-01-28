@@ -48,12 +48,32 @@ const Title = styled.h1`
   ${props => props.theme.breakpoints.medium`
     font-size: ${props.theme.fontSizes.xxxxLarge};
   `}
+
+
+  ${props =>
+  props.small &&
+  `
+  font-size: ${props.theme.fontSizes.xxLarge};
+  `}
+
+  ${props =>
+    props.small &&
+    props.theme.breakpoints.small`
+    font-size: ${props.theme.fontSizes.xxxLarge};
+  `}
+
 `;
 
 const SubTitle = styled.p`
   color: ${props => props.theme.colors.white};
   font-size: ${props => props.theme.fontSizes.xLarge};
   line-height: 1.3;
+
+  ${props =>
+  props.small &&
+  `
+  font-size: ${props.theme.fontSizes.large};
+  `}
 `;
 
 const Action = styled.div`
@@ -65,8 +85,8 @@ const Hero = ({ title, subTitle, action, ...props }) => {
     <Wrapper {...props}>
       <Container>
         <Inner>
-          <Title>{title}</Title>
-          <SubTitle>{subTitle}</SubTitle>
+          <Title {...props}>{title}</Title>
+          <SubTitle {...props}>{subTitle}</SubTitle>
 
           {action && (
             <Action>

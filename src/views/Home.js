@@ -31,7 +31,7 @@ const Home = () => {
 
       <SecontionHeader
         title="What is BandHQ?"
-        text="BandHQ is a collection of tools created to help musicians find a band, collaborate on new tracks and keep on top of their band schedules"
+        text="BandHQ is a collection of tools created to help musicians find a band, collaborate on new tracks and keep on top of their band schedules."
       />
 
       <SplitContent image={homeImage1} title="Find band members" reverse>

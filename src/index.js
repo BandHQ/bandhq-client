@@ -10,8 +10,8 @@ import * as serviceWorker from './serviceWorker';
 
 import client, { persistor } from './config/client';
 
-const SCHEMA_VERSION = '10';
-const SCHEMA_VERSION_KEY = 'FINMO_SCHEMA_VERSION';
+const SCHEMA_VERSION = '1';
+const SCHEMA_VERSION_KEY = 'BANDHQ_SCHEMA_VERSION';
 
 const renderApp = async () => {
   const currentVersion = await window.localStorage.getItem(SCHEMA_VERSION_KEY);

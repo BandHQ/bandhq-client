@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useQuery } from '@apollo/react-hooks';
 
 import Button from './Button';
 
 import Container from '../styles/Container';
+
+import { IS_AUTHENTICATED } from '../graph/auth';
 
 const Wrapper = styled.section`
 background-color:  ${props => props.theme.colors.white} 
@@ -31,6 +34,12 @@ const Title = styled.h3`
 `;
 
 const SignupCTA = () => {
+  const {
+    data: { isAuthenticated },
+  } = useQuery(IS_AUTHENTICATED);
+
+  if (isAuthenticated) return false;
+
   return (
     <Wrapper>
       <Container>

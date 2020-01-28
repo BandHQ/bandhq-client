@@ -19,7 +19,7 @@ const IS_AUTHENTICATED = gql`
 
 const CREATE_USER = gql`
   mutation SignUp($name: String!, $email: String!, $password: String!) {
-    signUp(name: $name, email: $email, password: $password) {
+    signup(name: $name, email: $email, password: $password) {
       token
       user {
         id
@@ -43,4 +43,38 @@ const LOGIN = gql`
   }
 `;
 
-export { GET_TOKEN, IS_AUTHENTICATED, CREATE_USER, LOGIN };
+const GET_USER = gql`
+  query User {
+    user {
+      id
+      email
+      name
+      projects {
+        id
+        title
+        content
+        public
+        location
+        status
+      }
+    }
+  }
+`;
+
+const UPDATE_USER = gql`
+  mutation UpdateUser($id: ID!, $name: String) {
+    updateUser(id: $id, name: $name) {
+      id
+      name
+    }
+  }
+`;
+
+export {
+  GET_TOKEN,
+  IS_AUTHENTICATED,
+  CREATE_USER,
+  LOGIN,
+  GET_USER,
+  UPDATE_USER,
+};

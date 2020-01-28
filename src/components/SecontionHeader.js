@@ -17,13 +17,18 @@ const Title = styled.h3`
   font-size: ${props => props.theme.fontSizes.xxLarge};
 `;
 
+const Text = styled.p`
+  margin: 0 auto;
+  max-width: 700px;
+`;
+
 const SectionHeader = ({ title, text }) => {
   return (
     <Wrapper>
       <Container>
         <Title>{title}</Title>
 
-        <p>{text}</p>
+        <Text>{text}</Text>
       </Container>
     </Wrapper>
   );

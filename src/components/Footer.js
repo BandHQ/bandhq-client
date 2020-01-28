@@ -5,19 +5,29 @@ import { Link } from '@reach/router';
 import Container from '../styles/Container';
 
 import { ReactComponent as FacebookLogo } from '../assets/facebook-logo.svg';
-
 import { ReactComponent as InstagramLogo } from '../assets/instagram-logo.svg';
 
 const Wrapper = styled.footer`
   background-color: ${props => props.theme.colors.black};
+  padding: ${props => props.theme.spacing.base} 0;
+
+  ${props => props.theme.breakpoints.medium`
+    padding: 0;
+  `}
 `;
 
 const Inner = styled.div`
   color: ${props => props.theme.colors.white50};
-  height: ${props => props.theme.components.footerHeight};
+
   display: flex;
   align-items: center;
+  flex-direction: column;
   font-size: ${props => props.theme.fontSizes.xSmall};
+
+  ${props => props.theme.breakpoints.medium`
+    flex-direction: row;
+    height: ${props.theme.components.footerHeight};
+  `}
 `;
 
 const MetaLinks = styled.div`
@@ -36,8 +46,11 @@ const SocialLinks = styled.ul`
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 0;
-  margin-left: auto;
+  margin: ${props => props.theme.spacing.base} 0 0 0;
+
+  ${props => props.theme.breakpoints.medium`
+    margin: 0 0 0 auto;
+  `}
 
   li {
     list-style: none;
@@ -76,13 +89,11 @@ const Footer = () => {
       <Container>
         <Inner>
           © Copyright 2020 BandHQ. All rights reserved.
-
           <MetaLinks>
             <Link to="/find-a-band">Find a Band</Link>
             <Link to="/musicians-wanted">Musicians Wanted</Link>
             <Link to="/find-band-members">Find Band Members</Link>
           </MetaLinks>
-
           <SocialLinks>
             <li>
               <SocialLink

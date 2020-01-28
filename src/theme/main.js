@@ -1,20 +1,26 @@
 import { css } from 'styled-components';
 import * as utils from '../styles/utils';
 
-const colors = {
+export const colors = {
   white: '#FFFFFF',
   black: '#1A2734',
   grey500: '#585858',
   grey300: '#D7D7D7',
   grey200: '#E1E1E1',
   grey100: '#F4F4F4',
+  green100: '#E3F4E9',
   green500: '#71CA91',
   green600: '#46B56E',
   purple500: '#7B30D4',
+  red100: '#F9DED6',
+  red500: '#E05A33',
+  blue500: '#57BAF8',
   white5: 'rgba(255,255,255,0.05)',
   white10: 'rgba(255,255,255,0.1)',
   white50: 'rgba(255,255,255,0.5)',
   white80: 'rgba(255,255,255,0.8)',
+  black5: 'rgba(0,0,0,0.02)',
+  black50: 'rgba(0,0,0,0.50)',
 };
 
 const fontSizes = {
