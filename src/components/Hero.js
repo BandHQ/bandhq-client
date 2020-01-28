@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
-import MailChimpForm from './MailChimpForm';
+import Button from './Button';
 
 import Container from '../styles/Container';
 
@@ -21,7 +20,21 @@ const Wrapper = styled.section`
   ${props => props.theme.breakpoints.small`
     padding: ${props.theme.spacing.xLarge} 0;
   `}
-`;
+
+
+  ${props =>
+    props.small &&
+    `
+      padding: ${props.theme.spacing.large} 0;
+      min-height: 0;
+    `}
+
+    ${props =>
+      props.small &&
+      props.theme.breakpoints.small`
+        padding: ${props.theme.spacing.xLarge} 0;
+    `}
+  `;
 
 const Inner = styled.div`
   max-width: 760px;
@@ -35,26 +48,51 @@ const Title = styled.h1`
   ${props => props.theme.breakpoints.medium`
     font-size: ${props.theme.fontSizes.xxxxLarge};
   `}
+
+
+  ${props =>
+  props.small &&
+  `
+  font-size: ${props.theme.fontSizes.xxLarge};
+  `}
+
+  ${props =>
+    props.small &&
+    props.theme.breakpoints.small`
+    font-size: ${props.theme.fontSizes.xxxLarge};
+  `}
+
 `;
 
 const SubTitle = styled.p`
   color: ${props => props.theme.colors.white};
   font-size: ${props => props.theme.fontSizes.xLarge};
   line-height: 1.3;
+
+  ${props =>
+  props.small &&
+  `
+  font-size: ${props.theme.fontSizes.large};
+  `}
 `;
 
-const Hero = ({ title, subTitle }) => {
+const Action = styled.div`
+  margin-top: ${props => props.theme.spacing.large};
+`;
+
+const Hero = ({ title, subTitle, action, ...props }) => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Container>
         <Inner>
-          <Title>{title}</Title>
-          <SubTitle>{subTitle}</SubTitle>
+          <Title {...props}>{title}</Title>
+          <SubTitle {...props}>{subTitle}</SubTitle>
 
-          <MailchimpSubscribe
-            url="https://app.us4.list-manage.com/subscribe/post?u=ea5d838d352af7686f80e5c7d&amp;id=cadd8e2e57"
-            render={MailChimpForm}
-          />
+          {action && (
+            <Action>
+              <Button {...action}>{action.label}</Button>
+            </Action>
+          )}
         </Inner>
       </Container>
     </Wrapper>
@@ -64,6 +102,13 @@ const Hero = ({ title, subTitle }) => {
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
+  action: PropTypes.shape({
+    label: PropTypes.string,
+  }),
+};
+
+Hero.defaultProps = {
+  action: null,
 };
 
 export default Hero;

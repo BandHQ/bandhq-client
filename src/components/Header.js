@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from '@reach/router';
 
-import Button from './Button';
+import Navigation from './Navigation';
 
 import Container from '../styles/Container';
 
@@ -26,7 +27,7 @@ const Inner = styled.div`
   }
 `;
 
-const LogoLink = styled.a`
+const LogoLink = styled(Link)`
   display: block;
   width: 90px;
   height: 26px;
@@ -47,13 +48,11 @@ const Header = () => {
     <Wrapper>
       <Container>
         <Inner>
-          <LogoLink href="/">
+          <LogoLink to="/">
             <Logo />
           </LogoLink>
 
-          <Button href="#sign-up" small>
-            sign up
-          </Button>
+          <Navigation />
         </Inner>
       </Container>
     </Wrapper>

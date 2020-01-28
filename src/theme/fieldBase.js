@@ -19,8 +19,8 @@ const fieldBase = `
     color: ${hexToRgba(theme.colors.grey500, 0.5)};
   }
 
-  &:focus: {
-    border-color: ${theme.colors.grey500}
+  &:focus {
+    border-color: ${theme.colors.grey500};
   }
 `;
 
