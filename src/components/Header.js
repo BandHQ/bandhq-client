@@ -8,6 +8,24 @@ import Container from '../styles/Container';
 
 import { ReactComponent as Logo } from '../assets/bandHQLogo.svg';
 
+const BetaBar = styled.div`
+  background-color: ${props => props.theme.colors.purple500};
+  color: ${props => props.theme.colors.white};
+  font-size: ${props => props.theme.fontSizes.small};
+  text-align: center;
+  padding: ${props => props.theme.spacing.xxSmall};
+
+  button {
+    color: ${props => props.theme.colors.white};
+    font-size: ${props => props.theme.fontSizes.small};
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`;
+
 const Wrapper = styled.header`
   background-color: ${props => props.theme.colors.black};
   color: ${props => props.theme.colors.white};
@@ -44,18 +62,32 @@ const LogoLink = styled(Link)`
 `;
 
 const Header = () => {
-  return (
-    <Wrapper>
-      <Container>
-        <Inner>
-          <LogoLink to="/">
-            <Logo />
-          </LogoLink>
+  const handleFeedbackClick = () => {
+    if (!window.doorbell) return;
 
-          <Navigation />
-        </Inner>
-      </Container>
-    </Wrapper>
+    window.doorbell.show();
+  };
+
+  return (
+    <>
+      <BetaBar>
+        BandHQ is in Beta, that means you can't do much yet. But we'd love to
+        get your feedback on what features you'd like to see.{' '}
+        <button onClick={handleFeedbackClick}>Send Feedback</button>
+      </BetaBar>
+
+      <Wrapper>
+        <Container>
+          <Inner>
+            <LogoLink to="/">
+              <Logo />
+            </LogoLink>
+
+            <Navigation />
+          </Inner>
+        </Container>
+      </Wrapper>
+    </>
   );
 };
 
