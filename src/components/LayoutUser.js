@@ -60,7 +60,12 @@ const LayoutUser = ({ title, description, children, fetching }) => {
   const {
     data: { user },
     loading,
-  } = useQuery(GET_USER);
+  } = useQuery(GET_USER, {
+    onCompleted(response) {
+      if (!response?.user?.email || !window.doorbell) return;
+      window.doorbell.setOption('email', response.user.email);
+    },
+  });
 
   const style = useSpring({
     opacity: loading || fetching ? 0 : 1,
