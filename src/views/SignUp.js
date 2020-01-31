@@ -8,6 +8,7 @@ import Form from '../components/Form';
 import { CREATE_USER, GET_TOKEN } from '../graph/auth';
 
 import { validate, requiredString } from '../utils/validate';
+import addToMailChimpList from '../utils/addToMailChimpList';
 
 const signUpFormFields = [
   {
@@ -70,6 +71,8 @@ const SignUp = () => {
       });
 
       navigate('/profile');
+
+      addToMailChimpList(response?.signup);
     },
   });
 
