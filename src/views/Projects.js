@@ -1,24 +1,26 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 
 import LayoutUser from '../components/LayoutUser';
+import UserProjectList from '../components/UserProjectList';
+
+import { GET_USER_PROJECTS } from '../graph/projects';
 
 const Projects = () => {
+  const {
+    data: { user },
+    loading: fetching,
+  } = useQuery(GET_USER_PROJECTS);
+
   return (
-    <LayoutUser title="Projects">
-      <p>Hold tight! BandHQ 'Projects' are coming very soon.</p>
-
+    <LayoutUser title="Projects" fetching={fetching}>
       <p>
-        Here you'll be able to create your projects (Bands), add which members
-        you're looking for and tag the project with genres and similar artists
-        so other musicians can easily find your project.
+        Here you can create your projects (bands), add which members you're
+        looking for and tag the project with genres and similar artists so other
+        musicians can easily find your project.
       </p>
 
-      <p>
-        Other users will then be able to message you through BandHQ so you can
-        get creative and talk ideas. Once you've made a decision you'll be able
-        to add that user to the project so you can start collaborating on
-        tracks.
-      </p>
+      <UserProjectList projects={user?.projects} />
     </LayoutUser>
   );
 };

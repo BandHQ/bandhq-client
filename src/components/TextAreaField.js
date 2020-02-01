@@ -7,8 +7,9 @@ import FieldWrapper from './FieldWrapper';
 
 import fieldBase from '../theme/fieldBase';
 
-const Input = styled.input`
+const Input = styled.textarea`
   ${fieldBase}
+  resize: vertical;
 
   ${props =>
     props.error &&
@@ -17,7 +18,7 @@ const Input = styled.input`
   `}
 `;
 
-const TextField = ({ name, hintText, type, disabled, readOnly, id, label }) => {
+const TextAreaField = ({ name, hintText, disabled, readOnly, label, id }) => {
   return (
     <Field
       name={name}
@@ -36,14 +37,15 @@ const TextField = ({ name, hintText, type, disabled, readOnly, id, label }) => {
           >
             <Input
               name={name}
-              type={type}
               error={!!errorMessage}
               disabled={disabled}
               readOnly={readOnly}
-              {...field}
+              rows="5"
               id={id}
-              value={field.value}
-            />
+              {...field}
+            >
+              {field.value}
+            </Input>
           </FieldWrapper>
         );
       }}
@@ -51,20 +53,19 @@ const TextField = ({ name, hintText, type, disabled, readOnly, id, label }) => {
   );
 };
 
-TextField.propTypes = {
+TextAreaField.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   hintText: PropTypes.string,
   disabled: PropTypes.bool,
   readOnly: PropTypes.bool,
 };
 
-TextField.defaultProps = {
+TextAreaField.defaultProps = {
   disabled: false,
   hintText: null,
   readOnly: false,
 };
 
-export default TextField;
+export default TextAreaField;

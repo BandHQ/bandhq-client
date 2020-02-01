@@ -6,6 +6,18 @@ const FormControl = styled.div`
   margin-bottom: ${props => props.theme.spacing.medium};
 `;
 
+const Field = styled.div`
+  ${props =>
+    props.inline &&
+    `
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    
+  `}
+`;
+
 const Label = styled.label`
   display: block;
   margin-bottom: ${props => props.theme.spacing.xxSmall};
@@ -25,14 +37,21 @@ const HintText = styled.p`
   color: ${props => props.theme.colors.black50};
 `;
 
-const FieldWrapper = ({ label, children, errorMessage, hintText, id }) => {
+const FieldWrapper = ({
+  label,
+  children,
+  errorMessage,
+  hintText,
+  name,
+  inline,
+}) => {
   return (
-    <FormControl>
-      <Label id={id} for={id}>
-        {label}
-      </Label>
+    <FormControl inline={inline}>
+      <Field inline={inline}>
+        <Label htmlFor={name}>{label}</Label>
 
-      {children}
+        {children}
+      </Field>
 
       {errorMessage && <ErrorMessage error>{errorMessage}</ErrorMessage>}
 
@@ -42,16 +61,18 @@ const FieldWrapper = ({ label, children, errorMessage, hintText, id }) => {
 };
 
 FieldWrapper.propTypes = {
-  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   hintText: PropTypes.string,
-  errorMessage: PropTypes.string,
+  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   children: PropTypes.node.isRequired,
+  inline: PropTypes.bool,
 };
 
 FieldWrapper.defaultProps = {
   hintText: null,
   errorMessage: null,
+  inline: false,
 };
 
 export default FieldWrapper;

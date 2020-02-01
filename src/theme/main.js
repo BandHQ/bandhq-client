@@ -15,11 +15,13 @@ export const colors = {
   red100: '#F9DED6',
   red500: '#E05A33',
   blue500: '#57BAF8',
+  yellow500: '#EBD66A',
   white5: 'rgba(255,255,255,0.05)',
   white10: 'rgba(255,255,255,0.1)',
   white50: 'rgba(255,255,255,0.5)',
   white80: 'rgba(255,255,255,0.8)',
-  black5: 'rgba(0,0,0,0.02)',
+  black2: 'rgba(0,0,0,0.02)',
+  black5: 'rgba(0,0,0,0.05)',
   black50: 'rgba(0,0,0,0.50)',
 };
 
