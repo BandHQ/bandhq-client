@@ -6,6 +6,8 @@ import TextAreaField from './TextAreaField';
 import CheckboxField from './CheckboxField';
 import SelectField from './SelectField';
 import LocationField from './LocationField';
+import TagField from './TagField';
+import LinkField from './LinkField';
 
 const FormField = ({ type, ...props }) => {
   if (type === 'text' || type === 'password') {
@@ -26,6 +28,14 @@ const FormField = ({ type, ...props }) => {
 
   if (type === 'location') {
     return <LocationField {...props} />;
+  }
+
+  if (type === 'tag') {
+    return <TagField {...props} />;
+  }
+
+  if (type === 'links') {
+    return <LinkField {...props} />;
   }
 
   return <TextField type={type} {...props} />;
