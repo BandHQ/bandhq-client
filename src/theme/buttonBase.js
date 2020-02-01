@@ -7,7 +7,7 @@ const buttonBase = `
   color: ${theme.colors.white};
   text-transform: uppercase;
   font-weight: ${theme.fontWeights.bold};
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.1rem;
   padding: 17px ${theme.spacing.midLarge};
   position: relative;
   line-height: 1;

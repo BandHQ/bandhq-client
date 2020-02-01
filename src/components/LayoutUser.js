@@ -21,25 +21,26 @@ const Wrapper = styled.div`
     100vh - ${props => props.theme.components.headerHeight} -
       ${props => props.theme.components.footerHeight}
   );
+  display: flex;
 `;
 
 const Main = styled.main`
-  width: 100%;
-
-  ${props => props.theme.breakpoints.medium`
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 ${props.theme.spacing.large};
-  `}
-`;
-
-const Inner = styled.div`
   width: 100%;
   padding: ${props => props.theme.spacing.small} 0;
 
   ${props => props.theme.breakpoints.small`
     padding: ${props.theme.spacing.large} 0;
   `}
+
+  ${props => props.theme.breakpoints.medium`
+    max-width: 860px;
+    margin: 0 auto;
+    padding: ${props.theme.spacing.large};
+  `}
+`;
+
+const Inner = styled.div`
+  width: 100%;
 
   ${props => props.theme.breakpoints.medium`
     display: flex;
@@ -79,14 +80,14 @@ const LayoutUser = ({ title, description, children, fetching }) => {
         {description && <meta name="description" content={description} />}
       </Helmet>
 
-      <Header />
+      <Header noContainer />
 
       <Wrapper>
-        <Container>
-          <Inner>
-            <SidebarNav />
+        <Inner>
+          <SidebarNav />
 
-            <Main>
+          <Main>
+            <Container>
               {loading || fetching ? (
                 <Loader />
               ) : (
@@ -94,7 +95,7 @@ const LayoutUser = ({ title, description, children, fetching }) => {
                   <SubTitle>
                     {`Hello ${user?.name}`}
 
-                    <Button small to="/projects">
+                    <Button small to="/projects/new">
                       Add new project
                     </Button>
                   </SubTitle>
@@ -104,9 +105,9 @@ const LayoutUser = ({ title, description, children, fetching }) => {
                   {children}
                 </animated.div>
               )}
-            </Main>
-          </Inner>
-        </Container>
+            </Container>
+          </Main>
+        </Inner>
       </Wrapper>
 
       <Footer />
@@ -117,12 +118,13 @@ const LayoutUser = ({ title, description, children, fetching }) => {
 LayoutUser.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   fetching: PropTypes.bool,
 };
 
 LayoutUser.defaultProps = {
   fetching: false,
+  description: '',
 };
 
 export default LayoutUser;

@@ -6,7 +6,7 @@ const Wrapper = styled.p`
   font-size: ${props => props.theme.fontSizes.small};
   padding: ${props => props.theme.spacing.xSmall};
   margin: 0;
-  background-color: ${props => props.theme.colors.black5};
+  background-color: ${props => props.theme.colors.black2};
 
   ${props =>
     props.type === 'error' &&
