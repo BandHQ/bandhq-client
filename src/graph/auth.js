@@ -49,14 +49,6 @@ const GET_USER = gql`
       id
       email
       name
-      projects {
-        id
-        title
-        content
-        public
-        location
-        status
-      }
     }
   }
 `;

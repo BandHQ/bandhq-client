@@ -9,6 +9,7 @@ import FindBandMembers from './views/FindBandMembers';
 import Login from './views/Login';
 import SignUp from './views/SignUp';
 import Profile from './views/Profile';
+import EditProject from './views/EditProject';
 import Messages from './views/Messages';
 import Projects from './views/Projects';
 import Calendar from './views/Calendar';
@@ -53,6 +54,8 @@ const App = () => {
         <Profile path="/profile" />
         <Messages path="/messages" />
         <Projects path="/projects" />
+        <EditProject path="/projects/new" />
+        <EditProject path="/projects/:id" />
         <Calendar path="/calendar" />
         <Collaborate path="/collaborate" />
         <FindABand path="/find-a-band" />

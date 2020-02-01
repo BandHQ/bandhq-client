@@ -61,7 +61,7 @@ const LogoLink = styled(Link)`
   }
 `;
 
-const Header = () => {
+const Header = ({ ...props }) => {
   const handleFeedbackClick = () => {
     if (!window.doorbell) return;
 
@@ -77,7 +77,7 @@ const Header = () => {
       </BetaBar>
 
       <Wrapper>
-        <Container>
+        <Container {...props}>
           <Inner>
             <LogoLink to="/">
               <Logo />

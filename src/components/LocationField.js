@@ -1,27 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Field } from 'formik';
 
 import FieldWrapper from './FieldWrapper';
+import LocationFieldAutoComplete from './LocationFieldAutoComplete';
 
-import fieldBase from '../theme/fieldBase';
-
-const Input = styled.input`
-  ${fieldBase}
-
-  ${props =>
-    props.error &&
-    `
-    border-color: ${props.theme.colors.red500};
-  `}
-`;
-
-const TextField = ({ name, hintText, type, disabled, readOnly, id, label }) => {
+const LocationField = ({ name, hintText, label, id }) => {
   return (
     <Field
       name={name}
-      render={({ field, form: { errors, touched, submitCount } }) => {
+      render={({
+        field,
+        form: { errors, touched, submitCount, setFieldValue },
+      }) => {
         const errorMessage =
           ((touched && touched[field.name]) || submitCount > 0) &&
           errors &&
@@ -34,15 +25,12 @@ const TextField = ({ name, hintText, type, disabled, readOnly, id, label }) => {
             label={label}
             hintText={hintText}
           >
-            <Input
-              name={name}
-              type={type}
+            <LocationFieldAutoComplete
               error={!!errorMessage}
-              disabled={disabled}
-              readOnly={readOnly}
-              {...field}
-              id={id}
               value={field.value}
+              setFieldValue={setFieldValue}
+              name={name}
+              id={id}
             />
           </FieldWrapper>
         );
@@ -51,20 +39,15 @@ const TextField = ({ name, hintText, type, disabled, readOnly, id, label }) => {
   );
 };
 
-TextField.propTypes = {
+LocationField.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   hintText: PropTypes.string,
-  disabled: PropTypes.bool,
-  readOnly: PropTypes.bool,
 };
 
-TextField.defaultProps = {
-  disabled: false,
+LocationField.defaultProps = {
   hintText: null,
-  readOnly: false,
 };
 
-export default TextField;
+export default LocationField;

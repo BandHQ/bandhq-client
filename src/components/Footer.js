@@ -46,10 +46,10 @@ const SocialLinks = styled.ul`
   display: flex;
   list-style: none;
   padding: 0;
-  margin: ${props => props.theme.spacing.base} 0 0 0;
+  margin: 0 0 ${props => props.theme.spacing.base} 0;
 
   ${props => props.theme.breakpoints.medium`
-    margin: 0 0 0 auto;
+    margin: 0 ${props.theme.spacing.base} 0 0;
   `}
 
   li {
@@ -88,12 +88,6 @@ const Footer = () => {
     <Wrapper>
       <Container>
         <Inner>
-          © Copyright 2020 BandHQ. All rights reserved.
-          <MetaLinks>
-            <Link to="/find-a-band">Find a Band</Link>
-            <Link to="/musicians-wanted">Musicians Wanted</Link>
-            <Link to="/find-band-members">Find Band Members</Link>
-          </MetaLinks>
           <SocialLinks>
             <li>
               <SocialLink
@@ -113,6 +107,12 @@ const Footer = () => {
               </SocialLink>
             </li>
           </SocialLinks>
+          © Copyright 2020 BandHQ. All rights reserved.
+          <MetaLinks>
+            <Link to="/find-a-band">Find a Band</Link>
+            <Link to="/musicians-wanted">Musicians Wanted</Link>
+            <Link to="/find-band-members">Find Band Members</Link>
+          </MetaLinks>
         </Inner>
       </Container>
     </Wrapper>

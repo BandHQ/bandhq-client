@@ -43,7 +43,7 @@ const Nav = styled.nav`
         width: 100%;
 
         &:hover {
-          background-color: ${props => props.theme.colors.black5};
+          background-color: ${props => props.theme.colors.black2};
         }
       }
     }
@@ -91,22 +91,22 @@ const SidebarNav = () => {
         </li>
 
         <li>
-          <Link to="/messages" small transparent>
-            <Icon>
-              <MessageIcon />
-            </Icon>
-
-            <span>Messages</span>
-          </Link>
-        </li>
-
-        <li>
           <Link to="/projects" small transparent>
             <Icon>
               <ListIcon />
             </Icon>
 
             <span>Projects</span>
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/messages" small transparent>
+            <Icon>
+              <MessageIcon />
+            </Icon>
+
+            <span>Messages</span>
           </Link>
         </li>
 
