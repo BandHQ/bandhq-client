@@ -2,18 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import tagBase from '../theme/tagBase';
+
 const Wrapper = styled.div`
-  height: ${props => props.theme.spacing.base};
-  border-radius: ${props => props.theme.base.radius};
-  background-color: ${props => props.theme.colors.black5};
-  font-size:  ${props => props.theme.fontSizes.xxSmall};
-  text-transform: uppercase;
-  font-weight: ${props => props.theme.fontWeights.bold};
-  letter-spacing: 0.1rem;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 ${props => props.theme.spacing.xSmall};
+  ${tagBase}
 
   ${props =>
     props.status === 'Concept' &&

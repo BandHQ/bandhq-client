@@ -40,7 +40,7 @@ const TextAreaField = ({ name, hintText, disabled, readOnly, label, id }) => {
               error={!!errorMessage}
               disabled={disabled}
               readOnly={readOnly}
-              rows="5"
+              rows="10"
               id={id}
               {...field}
             >

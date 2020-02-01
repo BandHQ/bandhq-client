@@ -9,6 +9,10 @@ import Form from '../components/Form';
 import { GET_PROJECT, UPDATE_PROJECT, CREATE_PROJECT } from '../graph/projects';
 
 import { validate, requiredString } from '../utils/validate';
+import flattenToArrayOfStrings from '../utils/flattenToArrayOfStrings';
+import nestToObjectWithName from '../utils/nestToObjectWithName';
+
+import { genres, statuses } from '../config/values';
 
 const projectFormFields = [
   {
@@ -46,12 +50,34 @@ const projectFormFields = [
     name: 'status',
     label: 'Project status',
     defaultLabel: 'Select a status',
-    options: [
-      { id: '1', value: 'Concept' },
-      { id: '2', value: 'New band' },
-      { id: '3', value: 'Established act' },
-    ],
+    options: statuses,
     hintText: 'Let potential band memebers know the current state of the band',
+  },
+
+  {
+    id: 'links',
+    type: 'links',
+    name: 'links',
+    label: 'Links to music',
+    hintText:
+      'Enter some links to your music e.g. SoundCloud, BandCamp or Spotify',
+  },
+
+  {
+    id: 'genres',
+    type: 'tag',
+    name: 'genres',
+    label: 'Genre tags',
+    hintText: 'Tag any genres that are relevant to your project',
+    suggestions: genres,
+  },
+
+  {
+    id: 'artists',
+    type: 'tag',
+    name: 'artists',
+    label: 'Similar artist tags',
+    hintText: 'Tag any artists that are similar to your project',
   },
 ];
 
@@ -62,11 +88,21 @@ const projectFormValidationSchema = validate({
   status: requiredString,
 });
 
-const projectTransformer = ({ __typename, location, ...data }) => {
+const projectTransformer = ({
+  __typename,
+  location,
+  genres,
+  artists,
+  links,
+  ...data
+}) => {
   return {
     variables: {
       ...location,
       ...data,
+      genres: flattenToArrayOfStrings(genres),
+      artists: flattenToArrayOfStrings(artists),
+      links: flattenToArrayOfStrings(links),
     },
   };
 };
@@ -78,11 +114,22 @@ const EditProject = ({ id }) => {
   });
 
   const initialValues = id
-    ? { ...data?.project, location: { location: data?.project?.location } }
+    ? {
+        ...data?.project,
+        location: {
+          location: data?.project?.location,
+        },
+        genres: nestToObjectWithName(data?.project?.genres),
+        artists: nestToObjectWithName(data?.project?.artists),
+        links: nestToObjectWithName(data?.project?.links),
+      }
     : {
         title: '',
         content: '',
         isPublic: true,
+        status: '',
+        genres: [],
+        artists: [],
       };
 
   const [
