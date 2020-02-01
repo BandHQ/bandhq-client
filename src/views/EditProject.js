@@ -143,6 +143,15 @@ const EditProject = ({ id }) => {
   ] = useMutation(CREATE_PROJECT, {
     onCompleted(response) {
       if (!response?.createProject?.id) return;
+
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: 'UA-156805282-1',
+          event_category: 'newproject',
+          event_label: 'newproject',
+        });
+      }
+
       navigate('/projects');
     },
   });
