@@ -18,6 +18,9 @@ const GET_USER_PROJECTS = gql`
         city
         country
         status
+        genres
+        artists
+        links
       }
     }
   }
@@ -34,6 +37,9 @@ const GET_PROJECT = gql`
       city
       country
       status
+      genres
+      artists
+      links
     }
   }
 `;
@@ -47,6 +53,9 @@ const CREATE_PROJECT = gql`
     $city: String!
     $country: String!
     $status: String!
+    $genres: [String!]
+    $artists: [String!]
+    $links: [String!]
   ) {
     createProject(
       title: $title
@@ -56,6 +65,9 @@ const CREATE_PROJECT = gql`
       status: $status
       city: $city
       country: $country
+      genres: $genres
+      artists: $artists
+      links: $links
     ) {
       id
       title
@@ -65,6 +77,9 @@ const CREATE_PROJECT = gql`
       city
       country
       status
+      genres
+      artists
+      links
     }
   }
 `;
@@ -79,6 +94,9 @@ const UPDATE_PROJECT = gql`
     $city: String!
     $country: String!
     $status: String!
+    $genres: [String!]
+    $artists: [String!]
+    $links: [String!]
   ) {
     updateProject(
       id: $id
@@ -89,6 +107,9 @@ const UPDATE_PROJECT = gql`
       city: $city
       country: $country
       status: $status
+      genres: $genres
+      artists: $artists
+      links: $links
     ) {
       id
       title
@@ -98,6 +119,9 @@ const UPDATE_PROJECT = gql`
       city
       country
       status
+      genres
+      artists
+      links
     }
   }
 `;
