@@ -71,8 +71,8 @@ const Header = ({ ...props }) => {
   return (
     <>
       <BetaBar>
-        BandHQ is in Beta, that means you can't do much yet. But we'd love to
-        get your feedback on what features you'd like to see.{' '}
+        BandHQ is in Beta but we'd love to get your feedback on what features
+        you'd like to see.{' '}
         <button onClick={handleFeedbackClick}>Send Feedback</button>
       </BetaBar>
 
