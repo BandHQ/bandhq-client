@@ -16,6 +16,10 @@ app.get('/ping', function(req, res) {
   return res.send('pong');
 });
 
+app.get('https://www.bandhq.app/*', (req, res) => {
+  return res.status(301).redirect(`https://bandhq.app${req.path}`);
+});
+
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
