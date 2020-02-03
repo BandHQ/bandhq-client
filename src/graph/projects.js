@@ -15,12 +15,7 @@ const GET_USER_PROJECTS = gql`
         content
         isPublic
         location
-        city
-        country
         status
-        genres
-        artists
-        links
       }
     }
   }
@@ -40,6 +35,12 @@ const GET_PROJECT = gql`
       genres
       artists
       links
+      roles {
+        id
+        title
+        content
+        status
+      }
     }
   }
 `;
@@ -80,6 +81,12 @@ const CREATE_PROJECT = gql`
       genres
       artists
       links
+      roles {
+        id
+        title
+        content
+        status
+      }
     }
   }
 `;
@@ -122,6 +129,12 @@ const UPDATE_PROJECT = gql`
       genres
       artists
       links
+      roles {
+        id
+        title
+        content
+        status
+      }
     }
   }
 `;

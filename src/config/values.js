@@ -49,3 +49,25 @@ export const statuses = [
   { id: '2', value: 'New band' },
   { id: '3', value: 'Established act' },
 ];
+
+export const roleTypes = [
+  { id: '1', value: 'Vocalist' },
+  { id: '2', value: 'Guitarist' },
+  { id: '3', value: 'Bassist' },
+  { id: '4', value: 'Drummer' },
+  { id: '5', value: 'Backing vocalist' },
+  { id: '6', value: 'Multi-instrumentalist' },
+  { id: '7', value: 'Percussionist' },
+  { id: '8', value: 'Synth/Keyboard Player' },
+  { id: '9', value: 'Pianist' },
+  { id: '10', value: 'Strings (e.g. Violin/Cello)' },
+  { id: '11', value: 'Brass (e.g. Trumpet/Trombone)' },
+  { id: '12', value: 'Woodwind (e.g. Saxophone/Flute)' },
+  { id: '13', value: 'Producer' },
+  { id: '14', value: 'Other' },
+];
+
+export const roleStatuses = [
+  { id: '1', value: 'Currently looking' },
+  { id: '2', value: 'Position filled' },
+];

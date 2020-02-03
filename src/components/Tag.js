@@ -22,11 +22,12 @@ const Wrapper = styled.div`
   `}
 
 ${props =>
-  props.status === 'Established act' &&
-  `
+  props.status === 'Established act' ||
+  (props.status === 'Currently looking' &&
+    `
      background-color: ${props.theme.colors.green500};
      color:  ${props.theme.colors.white};
-  `}
+  `)}
 `;
 
 const Tag = ({ status }) => {
