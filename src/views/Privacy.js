@@ -361,6 +361,7 @@ const Calendar = () => {
           any suspected data breach. If you suspect any misuse or loss or
           unauthorised access to your Data, please let us know immediately by
           contacting.
+				</li>
         <li>
           If you want detailed information from Get Safe Online on how to
           protect your information and your computers and devices against fraud,
@@ -610,9 +611,7 @@ const Calendar = () => {
           as we may deem necessary from time to time or as may be required by
           law. Any changes will be immediately posted on the Website and you are
           deemed to have accepted the terms of the privacy policy on your first
-          use of the Website following the alterations. <br /> <br />
-          You may contact <span>BandHQ</span> by email at{' '}
-          <span>brierleytom@gmail.com</span>.
+          use of the Website following the alterations.
         </li>
       </ol>
 
