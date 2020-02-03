@@ -5,6 +5,7 @@ import { navigate } from '@reach/router';
 
 import LayoutUser from '../components/LayoutUser';
 import Form from '../components/Form';
+import RoleForm from '../components/RoleForm';
 
 import { GET_PROJECT, UPDATE_PROJECT, CREATE_PROJECT } from '../graph/projects';
 
@@ -130,6 +131,7 @@ const EditProject = ({ id }) => {
         status: '',
         genres: [],
         artists: [],
+        links: [],
       };
 
   const [
@@ -143,7 +145,16 @@ const EditProject = ({ id }) => {
   ] = useMutation(CREATE_PROJECT, {
     onCompleted(response) {
       if (!response?.createProject?.id) return;
-      navigate('/projects');
+
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          send_to: 'UA-156805282-1',
+          event_category: 'newproject',
+          event_label: 'newproject',
+        });
+      }
+
+      navigate(`/projects/${response?.createProject?.id}#roles`);
     },
   });
 
@@ -163,13 +174,15 @@ const EditProject = ({ id }) => {
             ? 'There has been a problem updating your project'
             : 'Unable to create your project.'
         }
-        success={!!(!(errorUpdate || errorNew) && (calledUpdate || calledNew))}
+        success={!!(!(errorUpdate && errorNew) && (calledUpdate || calledNew))}
         successMessage={
           id ? 'Profile updated successfully' : 'Project created successfully.'
         }
         submitButtonText={id ? 'Update' : 'Add Project'}
         container
       />
+
+      <RoleForm disabled={!id} projectId={id} roles={data?.project?.roles} />
     </LayoutUser>
   );
 };

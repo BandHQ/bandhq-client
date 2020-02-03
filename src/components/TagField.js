@@ -27,6 +27,10 @@ const Input = styled.div`
   .react-tags__selected-tag {
     ${tagBase}
     margin-right: ${props => props.theme.spacing.xxSmall};
+
+    &:hover {
+      background-color: ${props => props.theme.colors.black10};
+    }
   }
 
   .react-tags__selected {
