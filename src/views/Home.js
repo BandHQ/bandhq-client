@@ -7,10 +7,10 @@ import ProjectList from '../components/ProjectList';
 import SecontionHeader from '../components/SecontionHeader';
 import SignupCTA from '../components/SignupCTA';
 
-import homeImage1 from '../assets/home-image-1.png';
-import homeImage2 from '../assets/home-image-2.png';
-import homeImage3 from '../assets/home-image-3.png';
-import homeImage4 from '../assets/home-image-4.png';
+import homeImage1 from '../assets/home-image-1.webp';
+import homeImage2 from '../assets/home-image-2.webp';
+import homeImage3 from '../assets/home-image-3.webp';
+import homeImage4 from '../assets/home-image-4.webp';
 
 const Home = () => {
   return (
