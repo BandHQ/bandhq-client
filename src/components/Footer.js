@@ -109,6 +109,7 @@ const Footer = () => {
           </SocialLinks>
           © Copyright 2020 BandHQ. All rights reserved.
           <MetaLinks>
+            <Link to="/privacy">Privacy Policy</Link>
             <Link to="/find-a-band">Find a Band</Link>
             <Link to="/musicians-wanted">Musicians Wanted</Link>
             <Link to="/find-band-members">Find Band Members</Link>

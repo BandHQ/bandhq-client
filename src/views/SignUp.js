@@ -78,11 +78,17 @@ const SignUp = () => {
 
   const renderLoginLink = () => {
     return (
-      <p>
-        Already have an BandHQ account?
-        <br />
-        <Link to="/login">Login here</Link>.
-      </p>
+      <>
+        <p>
+          {' '}
+          By signing up to BandHQ you agree to our{' '}
+          <Link to="/privacy">Privacy Policy</Link>.
+        </p>
+
+        <p>
+          Already have an BandHQ account? <Link to="/login">Login here</Link>.
+        </p>
+      </>
     );
   };
 
