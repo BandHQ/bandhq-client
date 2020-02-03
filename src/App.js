@@ -14,6 +14,7 @@ import Messages from './views/Messages';
 import Projects from './views/Projects';
 import Calendar from './views/Calendar';
 import Collaborate from './views/Collaborate';
+import Privacy from './views/Privacy';
 
 import { IS_AUTHENTICATED } from './graph/auth';
 
@@ -43,6 +44,7 @@ const App = () => {
         <FindABand path="/find-a-band" />
         <MusiciansWanted path="/musicians-wanted" />
         <FindBandMembers path="/find-band-members" />
+        <Privacy path="/privacy" />
         <Home default path="/" />
       </Router>
     );
@@ -61,6 +63,7 @@ const App = () => {
         <FindABand path="/find-a-band" />
         <MusiciansWanted path="/musicians-wanted" />
         <FindBandMembers path="/find-band-members" />
+        <Privacy path="/privacy" />
         <Home default path="/" />
       </Router>
     </>
