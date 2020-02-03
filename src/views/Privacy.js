@@ -360,9 +360,7 @@ const Calendar = () => {
           Technical and organisational measures include measures to deal with
           any suspected data breach. If you suspect any misuse or loss or
           unauthorised access to your Data, please let us know immediately by
-          contacting us via this e-mail address:{' '}
-          <span>brierleytom@gmail.com</span>.
-        </li>
+          contacting.
         <li>
           If you want detailed information from Get Safe Online on how to
           protect your information and your computers and devices against fraud,
@@ -429,8 +427,7 @@ const Calendar = () => {
         <li>
           To make enquiries, exercise any of your rights set out above, or
           withdraw your consent to the processing of your Data (where consent is
-          our legal basis for processing your Data), please contact us via this
-          e-mail address: <span>brierleytom@gmail.com</span>.
+          our legal basis for processing your Data), please contact us.
         </li>
         <li>
           If you are not satisfied with the way a complaint you make in relation
