@@ -15,6 +15,7 @@ import Projects from './views/Projects';
 import Calendar from './views/Calendar';
 import Collaborate from './views/Collaborate';
 import Privacy from './views/Privacy';
+import NotFound from './views/NotFound';
 
 import { IS_AUTHENTICATED } from './graph/auth';
 
@@ -45,7 +46,8 @@ const App = () => {
         <MusiciansWanted path="/musicians-wanted" />
         <FindBandMembers path="/find-band-members" />
         <Privacy path="/privacy" />
-        <Home default path="/" />
+        <Home path="/" />
+        <NotFound default />
       </Router>
     );
   }
@@ -64,7 +66,8 @@ const App = () => {
         <MusiciansWanted path="/musicians-wanted" />
         <FindBandMembers path="/find-band-members" />
         <Privacy path="/privacy" />
-        <Home default path="/" />
+        <Home path="/" />
+        <NotFound default />
       </Router>
     </>
   );
