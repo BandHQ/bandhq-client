@@ -31,10 +31,12 @@ const Inner = styled.div`
 `;
 
 const MetaLinks = styled.div`
+  margin-left: ${props => props.theme.spacing.base};
+
   a {
     color: ${props => props.theme.colors.white50};
     display: inline-block;
-    margin-left: ${props => props.theme.spacing.xSmall};
+    padding: ${props => props.theme.spacing.xSmall};
 
     &:hover {
       color: ${props => props.theme.colors.white80};
@@ -54,20 +56,15 @@ const SocialLinks = styled.ul`
 
   li {
     list-style: none;
-    padding: 0 ${props => props.theme.spacing.xxSmall};
     margin: 0;
 
-    &:last-child {
-      padding-right: 0;
-    }
+    
   }
 `;
 
 const SocialLink = styled.a`
   display: block;
-
-  width: 20px;
-  height: 20px;
+  padding: ${props => props.theme.spacing.xxSmall};
 
   svg {
     fill: ${props => props.theme.colors.white50};
@@ -81,6 +78,15 @@ const SocialLink = styled.a`
       fill: ${props => props.theme.colors.white80};
     }
   }
+
+  span {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
 `;
 
 const Footer = () => {
@@ -93,8 +99,10 @@ const Footer = () => {
               <SocialLink
                 href="https://www.facebook.com/bandhqapp"
                 target="_blank"
+                rel="noopener"
               >
                 <FacebookLogo />
+                <span>BandHQ Facebook</span>
               </SocialLink>
             </li>
 
@@ -102,8 +110,10 @@ const Footer = () => {
               <SocialLink
                 href="https://www.instagram.com/bandhq.app/"
                 target="_blank"
+                rel="noopener"
               >
                 <InstagramLogo />
+                <span>BandHQ Instagram</span>
               </SocialLink>
             </li>
           </SocialLinks>
