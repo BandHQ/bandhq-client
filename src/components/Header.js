@@ -59,6 +59,15 @@ const LogoLink = styled(Link)`
   &:active {
     opacity: 0.7;
   }
+
+  span {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
 `;
 
 const Header = ({ ...props }) => {
@@ -81,6 +90,7 @@ const Header = ({ ...props }) => {
           <Inner>
             <LogoLink to="/">
               <Logo />
+              <span>BandHQ</span>
             </LogoLink>
 
             <Navigation />
