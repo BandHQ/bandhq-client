@@ -57,14 +57,13 @@ const SocialLinks = styled.ul`
   li {
     list-style: none;
     margin: 0;
-
-    
   }
 `;
 
 const SocialLink = styled.a`
   display: block;
-  padding: ${props => props.theme.spacing.xxSmall};
+  padding: ${props => props.theme.spacing.xSmall}
+    ${props => props.theme.spacing.xxSmall};
 
   svg {
     fill: ${props => props.theme.colors.white50};
