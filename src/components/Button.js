@@ -8,7 +8,7 @@ import buttonBase from '../theme/buttonBase';
 import getButtonElement from '../utils/getButtonElement';
 
 const Wrapper = styled.a`
-  ${({ theme, small, transparent, icon, disabled, fullWidth }) => `
+  ${({ theme, small, transparent, icon, disabled, fullWidth, purple }) => `
 
   ${buttonBase}
 
@@ -27,6 +27,19 @@ const Wrapper = styled.a`
     fullWidth
       ? `
     width: 100%;
+  `
+      : ``
+  }
+
+
+  ${
+    purple
+      ? `
+    background-color: ${theme.colors.purple500};
+
+    &:hover {
+      background-color: ${theme.colors.purple400};
+    }
   `
       : ``
   }

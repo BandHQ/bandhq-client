@@ -51,8 +51,8 @@ const Title = styled.h1`
 
 
   ${props =>
-  props.small &&
-  `
+    props.small &&
+    `
   font-size: ${props.theme.fontSizes.xxLarge};
   `}
 
@@ -70,8 +70,8 @@ const SubTitle = styled.p`
   line-height: 1.3;
 
   ${props =>
-  props.small &&
-  `
+    props.small &&
+    `
   font-size: ${props.theme.fontSizes.large};
   `}
 `;
@@ -90,7 +90,9 @@ const Hero = ({ title, subTitle, action, ...props }) => {
 
           {action && (
             <Action>
-              <Button {...action}>{action.label}</Button>
+              <Button purple {...action}>
+                {action.label}
+              </Button>
             </Action>
           )}
         </Inner>
